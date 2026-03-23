@@ -1,0 +1,398 @@
+/* ============================================================
+   Katja Mali — Landscape Architect
+   style.css
+   ============================================================ */
+
+/* --- Custom Properties --------------------------------------- */
+:root {
+  --c-bg:        #f4f1eb;
+  --c-surface:   #edeae2;
+  --c-dark:      #1c1c18;
+  --c-mid:       #5a5a50;
+  --c-accent:    #4a6741;
+  --c-accent-lt: #c8d5c0;
+  --c-border:    #d8d4c8;
+
+  --font-serif:  Georgia, 'Times New Roman', serif;
+  --font-sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --nav-h:       68px;
+  --max-w:       1160px;
+  --gap:         clamp(1.5rem, 4vw, 3rem);
+}
+
+/* --- Reset --------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+img  { display: block; max-width: 100%; height: auto; }
+ul   { list-style: none; }
+a    { color: inherit; text-decoration: none; }
+
+/* --- Base ---------------------------------------------------- */
+body {
+  background-color: var(--c-bg);
+  color: var(--c-dark);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* --- Utilities ----------------------------------------------- */
+.container {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 0.75rem;
+}
+
+/* --- Navigation --------------------------------------------- */
+#site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+#site-header.scrolled {
+  background: rgba(244, 241, 235, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 var(--c-border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: white;
+  transition: color 0.35s;
+}
+
+#site-header.scrolled .nav-logo { color: var(--c-dark); }
+
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+}
+
+.nav-links a {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: white; }
+
+#site-header.scrolled .nav-links a { color: var(--c-mid); }
+#site-header.scrolled .nav-links a:hover { color: var(--c-dark); }
+
+/* --- Hero ---------------------------------------------------- */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--c-accent);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+/* Dark gradient overlay for legibility */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 24, 16, 0.72) 0%,
+    rgba(20, 24, 16, 0.15) 55%,
+    transparent 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(1.25rem, 5vw, 3rem) clamp(3rem, 7vw, 5.5rem);
+  max-width: var(--max-w);
+  width: 100%;
+  margin-inline: auto;
+  color: white;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.6rem;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-family: var(--font-serif);
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid rgba(255,255,255,0.55);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: white;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.hero-cta:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: white;
+}
+
+/* --- About --------------------------------------------------- */
+#about {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.about-portrait {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--c-accent-lt);
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.about-portrait:hover img { transform: scale(1.03); }
+
+.about-text { padding-inline: clamp(0rem, 3vw, 2rem); }
+
+.about-text h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-bottom: 1.5rem;
+  color: var(--c-dark);
+}
+
+.about-text p {
+  color: var(--c-mid);
+  margin-bottom: 1rem;
+  font-size: 1.0rem;
+}
+
+/* --- Projects ----------------------------------------------- */
+#projects {
+  padding-block: clamp(4rem, 10vw, 8rem);
+  background: var(--c-surface);
+}
+
+#projects h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card { overflow: hidden; }
+
+.project-link { display: block; }
+
+.project-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--c-accent-lt);
+}
+
+.project-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img-wrap img { transform: scale(1.05); }
+
+.project-meta {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.project-meta h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-meta h3 { color: var(--c-accent); }
+
+.project-meta p {
+  font-size: 0.78rem;
+  color: var(--c-mid);
+  letter-spacing: 0.04em;
+}
+
+/* --- Contact ------------------------------------------------- */
+#contact {
+  padding-block: clamp(5rem, 12vw, 10rem);
+}
+
+.contact-inner {
+  max-width: 640px;
+}
+
+#contact h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  margin-bottom: 1.25rem;
+}
+
+.contact-body {
+  color: var(--c-mid);
+  font-size: 1.0rem;
+  margin-bottom: 2.25rem;
+}
+
+.contact-email {
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  color: var(--c-accent);
+  border-bottom: 1px solid var(--c-accent-lt);
+  padding-bottom: 0.15rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-email:hover {
+  color: var(--c-dark);
+  border-color: var(--c-dark);
+}
+
+/* --- Footer -------------------------------------------------- */
+#site-footer {
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--c-border);
+  background: var(--c-surface);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-name {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--c-mid);
+}
+
+/* --- Scroll reveal ------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Responsive --------------------------------------------- */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+  }
+}

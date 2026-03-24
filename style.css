@@ -5,18 +5,18 @@
 
 /* --- Custom Properties --------------------------------------- */
 :root {
-  --c-bg:        #f4f1eb;
-  --c-surface:   #edeae2;
+  --c-bg:        #ffffff;
+  --c-surface:   #fafafa;
   --c-dark:      #1c1c18;
-  --c-mid:       #5a5a50;
+  --c-mid:       #6b6b60;
   --c-accent:    #4a6741;
   --c-accent-lt: #c8d5c0;
-  --c-border:    #d8d4c8;
+  --c-border:    #e5e5e0;
 
   --font-serif:  Georgia, 'Times New Roman', serif;
   --font-sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 
-  --nav-h:       68px;
+  --sidebar-w:   220px;
   --max-w:       1160px;
   --gap:         clamp(1.5rem, 4vw, 3rem);
 }
@@ -35,6 +35,7 @@ body {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.7;
+  margin-left: var(--sidebar-w);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,66 +62,82 @@ h1, h2, h3 {
   margin-bottom: 0.75rem;
 }
 
-/* --- Navigation --------------------------------------------- */
-#site-header {
+/* --- Sidebar ------------------------------------------------ */
+.sidebar {
   position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  z-index: 100;
-  height: var(--nav-h);
-  transition: background 0.35s ease, box-shadow 0.35s ease;
-}
-
-#site-header.scrolled {
-  background: rgba(244, 241, 235, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 1px 0 var(--c-border);
-}
-
-.nav {
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  background: var(--c-bg);
+  border-right: 1px solid var(--c-border);
+  z-index: 200;
 }
 
-.nav-logo {
+.sidebar-logo {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   letter-spacing: 0.02em;
-  color: white;
-  transition: color 0.35s;
+  color: var(--c-dark);
+  margin-bottom: 3rem;
 }
 
-#site-header.scrolled .nav-logo { color: var(--c-dark); }
-
-.nav-links {
+.sidebar-links {
   display: flex;
-  gap: 2.25rem;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
-.nav-links a {
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+.sidebar-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
+  color: var(--c-mid);
   transition: color 0.2s;
 }
 
-.nav-links a:hover { color: white; }
+.sidebar-links a:hover { color: var(--c-dark); }
 
-#site-header.scrolled .nav-links a { color: var(--c-mid); }
-#site-header.scrolled .nav-links a:hover { color: var(--c-dark); }
+/* --- Mobile menu toggle ------------------------------------- */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 300;
+  width: 32px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--c-dark);
+  margin-bottom: 6px;
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-toggle span:last-child { margin-bottom: 0; }
+
+.menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* --- Hero ---------------------------------------------------- */
 #hero {
   position: relative;
   height: 100svh;
-  min-height: 560px;
+  min-height: 480px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -377,7 +394,25 @@ h1, h2, h3 {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+  /* Hide sidebar, show hamburger */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  body {
+    margin-left: 0;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -390,9 +425,5 @@ h1, h2, h3 {
 @media (max-width: 540px) {
   .projects-grid {
     grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    gap: 1.25rem;
   }
 }

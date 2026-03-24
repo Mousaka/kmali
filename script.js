@@ -6,22 +6,19 @@
 // --- Footer year ---------------------------------------------
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// --- Mobile sidebar toggle -----------------------------------
-const menuToggle = document.getElementById('menu-toggle');
-const sidebar = document.getElementById('sidebar');
+// --- Nav: apply .scrolled class on scroll --------------------
+const header = document.getElementById('site-header');
 
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('open');
-  sidebar.classList.toggle('open');
-});
+function updateNav() {
+  if (window.scrollY > 40) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}
 
-// Close sidebar when a link is clicked (mobile)
-sidebar.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle.classList.remove('open');
-    sidebar.classList.remove('open');
-  });
-});
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav(); // run once on load
 
 // --- Scroll reveal -------------------------------------------
 const revealEls = document.querySelectorAll(

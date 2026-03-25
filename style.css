@@ -17,7 +17,7 @@
   --font-sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 
   --gap:         clamp(1.5rem, 4vw, 3rem);
-  --sidebar-max: 860px;
+  --nav-col:     280px;
 }
 
 /* --- Reset --------------------------------------------------- */
@@ -52,9 +52,7 @@ h1, h2, h3 {
 /* --- Sidebar ------------------------------------------------- */
 .sidebar {
   width: 100%;
-  max-width: var(--sidebar-max);
   background: var(--c-bg);
-  border-inline-end: none;
   display: flex;
   flex-direction: column;
 }
@@ -277,28 +275,34 @@ h1, h2, h3 {
 
 /* --- Responsive --------------------------------------------- */
 
-/* Tablet: narrower sidebar */
-@media (max-width: 1024px) {
-  .sidebar {
-    max-width: 680px;
-  }
-}
-
-/* Wider screens: 2-column project grid */
+/* Wider screens: buttons sit in a fixed left column, panel expands to the right */
 @media (min-width: 769px) {
+  .accordion-item {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .accordion-btn {
+    width: var(--nav-col);
+    flex-shrink: 0;
+  }
+
+  .accordion-panel {
+    flex: 1;
+    border-inline-start: 1px solid var(--c-border);
+  }
+
+  .accordion-panel[aria-hidden="false"] .accordion-panel-inner {
+    padding-block-start: 1rem;
+  }
+
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile */
+/* Mobile: single column, panel expands below button */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    max-width: none;
-    border-block-end: none;
-  }
-
   .nav-logo {
     padding: 1.5rem 1.25rem 1rem;
   }
@@ -310,10 +314,6 @@ h1, h2, h3 {
 
   .accordion-panel-inner {
     padding-inline: 1.25rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
   }
 
   .sidebar-footer {

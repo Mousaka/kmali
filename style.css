@@ -72,14 +72,11 @@ h1, h2, h3 {
   flex: 1;
 }
 
-.accordion-item {
-  border-block-end: 1px solid var(--c-border);
-}
 
 .accordion-btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   padding: 1rem 1.75rem;
   font-size: 0.78rem;
@@ -97,15 +94,6 @@ h1, h2, h3 {
 .accordion-btn[aria-expanded="true"] {
   color: var(--c-dark);
   background: var(--c-surface);
-}
-
-.accordion-icon {
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.accordion-btn[aria-expanded="true"] .accordion-icon {
-  transform: rotate(180deg);
 }
 
 /* Panel: hidden by default via grid trick for smooth animation */
@@ -290,7 +278,6 @@ h1, h2, h3 {
 
   .accordion-panel {
     flex: 1;
-    border-inline-start: 1px solid var(--c-border);
   }
 
   .accordion-panel[aria-hidden="false"] .accordion-panel-inner {

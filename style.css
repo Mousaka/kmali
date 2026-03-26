@@ -13,8 +13,8 @@
   --c-accent-lt: #c8d5c0;
   --c-border:    #d8d4c8;
 
-  --font-serif:  Georgia, 'Times New Roman', serif;
-  --font-sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif:  'Diatype', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Diatype', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 
   --gap:         clamp(1.5rem, 4vw, 3rem);
 }

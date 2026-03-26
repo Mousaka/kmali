@@ -5,8 +5,8 @@
 
 /* --- Custom Properties --------------------------------------- */
 :root {
-  --c-bg:        #f4f1eb;
-  --c-surface:   #edeae2;
+  --c-bg:        #ffffff;
+  --c-surface:   #f4f1eb;
   --c-dark:      #1c1c18;
   --c-mid:       #5a5a50;
   --c-accent:    #4a6741;
@@ -53,6 +53,7 @@ h1, h2, h3 {
 /* --- Sidebar ------------------------------------------------- */
 .sidebar {
   width: 100%;
+  min-height: 100svh;
   background: var(--c-bg);
   display: flex;
   flex-direction: column;
@@ -222,7 +223,6 @@ h1, h2, h3 {
 /* --- Sidebar Footer ------------------------------------------ */
 .sidebar-footer {
   padding: 1.5rem 1.75rem;
-  border-block-start: 1px solid var(--c-border);
   display: flex;
   flex-direction: column;
   gap: 0.2rem;

@@ -17,7 +17,6 @@
   --font-sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 
   --gap:         clamp(1.5rem, 4vw, 3rem);
-  --nav-col:     280px;
 }
 
 /* --- Reset --------------------------------------------------- */
@@ -47,6 +46,8 @@ h1, h2, h3 {
 /* --- Site Layout --------------------------------------------- */
 .site-layout {
   min-height: 100svh;
+  max-width: 960px;
+  margin-inline: auto;
 }
 
 /* --- Sidebar ------------------------------------------------- */

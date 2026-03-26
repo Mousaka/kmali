@@ -46,6 +46,8 @@ h1, h2, h3 {
 /* --- Site Layout --------------------------------------------- */
 .site-layout {
   min-height: 100svh;
+  max-width: 960px;
+  margin-inline: auto;
 }
 
 /* --- Sidebar ------------------------------------------------- */

@@ -5,7 +5,7 @@
 
 /* --- Custom Properties --------------------------------------- */
 :root {
-  --c-bg:        rgb(126, 167, 51);
+  --c-bg:        #ffffff;
   --c-surface:   #f4f1eb;
   --c-dark:      #1c1c18;
   --c-mid:       #5a5a50;

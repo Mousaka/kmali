@@ -101,6 +101,7 @@ h1, h2, h3 {
 .accordion-panel {
   display: grid;
   grid-template-rows: 0fr;
+  overflow: hidden;
   transition: grid-template-rows 0.35s ease;
 }
 
@@ -109,7 +110,7 @@ h1, h2, h3 {
 }
 
 .accordion-panel-inner {
-  overflow: hidden;
+  min-height: 0;
   padding-inline: 1.75rem;
   padding-block-start: 0.75rem;
   padding-block-end: 1.75rem;

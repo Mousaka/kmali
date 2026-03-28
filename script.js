@@ -19,17 +19,8 @@ accordionBtns.forEach(btn => {
     const isExpanded = btn.getAttribute('aria-expanded') === 'true';
     const panel = document.getElementById(btn.getAttribute('aria-controls'));
 
-    // Close all panels first (single-open accordion)
-    accordionBtns.forEach(otherBtn => {
-      const otherPanel = document.getElementById(otherBtn.getAttribute('aria-controls'));
-      otherBtn.setAttribute('aria-expanded', 'false');
-      otherPanel.setAttribute('aria-hidden', 'true');
-    });
-
-    // Toggle the clicked panel (if it was closed, open it)
-    if (!isExpanded) {
-      btn.setAttribute('aria-expanded', 'true');
-      panel.setAttribute('aria-hidden', 'false');
-    }
+    // Toggle the clicked panel independently
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+    panel.setAttribute('aria-hidden', String(isExpanded));
   });
 });

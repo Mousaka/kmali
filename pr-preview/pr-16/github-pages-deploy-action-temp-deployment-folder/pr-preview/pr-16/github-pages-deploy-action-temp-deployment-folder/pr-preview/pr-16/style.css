@@ -100,13 +100,13 @@ h1, h2, h3 {
 /* Panel: hidden by default via grid trick for smooth animation */
 .accordion-panel {
   display: grid;
-  grid-template-rows: minmax(0, 0fr);
+  grid-template-rows: 0fr;
   overflow: hidden;
   transition: grid-template-rows 0.35s ease;
 }
 
 .accordion-panel[aria-hidden="false"] {
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: 1fr;
 }
 
 .accordion-panel-inner {

@@ -101,7 +101,6 @@ h1, h2, h3 {
 .accordion-panel {
   display: grid;
   grid-template-rows: 0fr;
-  overflow: hidden;
   transition: grid-template-rows 0.35s ease;
 }
 
@@ -110,10 +109,13 @@ h1, h2, h3 {
 }
 
 .accordion-panel-inner {
-  min-height: 0;
+  overflow: hidden;
   padding-inline: 1.75rem;
-  padding-block-start: 0.75rem;
+}
+
+.accordion-panel[aria-hidden="false"] .accordion-panel-inner {
   padding-block-end: 1.75rem;
+  padding-block-start: 0.75rem;
 }
 
 /* --- About (inside accordion) -------------------------------- */
@@ -276,6 +278,10 @@ h1, h2, h3 {
 
   .accordion-panel {
     flex: 1;
+  }
+
+  .accordion-panel[aria-hidden="false"] .accordion-panel-inner {
+    padding-block-start: 1rem;
   }
 
   .projects-grid {

@@ -28,7 +28,19 @@ Colors, fonts, and spacing are in the `:root` block at the top of `style.css`.
 
 ## Deploying
 
-Push any changes to `main` — GitHub Pages publishes automatically within ~1 minute.
+Deployment is automated with GitHub Actions:
+
+- Pushes to `main` deploy the site root to `gh-pages`.
+- Pull requests from branches in this repository deploy previews to `pr-preview/pr-<number>/`.
+- Preview URL format: `https://mousaka.github.io/kmali/pr-preview/pr-<number>/`.
+- Preview deployments are removed automatically when the PR is closed.
+
+### Required repository settings
+
+- GitHub Pages source should be **Deploy from a branch** using branch `gh-pages` and folder `/`.
+- Forked PR previews are skipped by default because the workflow does not use a write token for forks.
+
+### Typical update flow
 
 ```sh
 git add .

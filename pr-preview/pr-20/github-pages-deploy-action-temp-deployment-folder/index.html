@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site description placeholder">
+  <title>Katja Mali — Landscape Architect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="site-layout">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="#" class="nav-logo">Katja Mali</a>
+
+      <nav class="nav-accordion" aria-multiselectable="true">
+        <!-- About -->
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="panel-about">
+            <span>About</span>
+          </button>
+          <div class="accordion-panel" id="panel-about">
+            <div class="accordion-panel-inner">
+              <figure class="about-portrait">
+                <img src="assets/images/portrait.jpg" alt="Portrait photo">
+              </figure>
+              <div class="about-text">
+                <h2>About section heading</h2>
+                <p>A short introductory paragraph about who this person is and what they do. This is placeholder text.</p>
+                <p>A second paragraph with more details about their background, approach, and areas of work. This is placeholder text.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="panel-projects">
+            <span>Projects</span>
+          </button>
+          <div class="accordion-panel" id="panel-projects">
+            <div class="accordion-panel-inner">
+              <h2>Projects section heading</h2>
+              <div class="projects-grid">
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-1.jpg" alt="Project 1" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 1</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-2.jpg" alt="Project 2" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 2</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-3.jpg" alt="Project 3" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 3</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-4.jpg" alt="Project 4" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 4</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-5.jpg" alt="Project 5" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 5</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+                <article class="project-card">
+                  <a href="#" class="project-link">
+                    <div class="project-img-wrap">
+                      <img src="assets/images/project-6.jpg" alt="Project 6" loading="lazy">
+                    </div>
+                    <div class="project-meta">
+                      <h3>Project 6</h3>
+                      <p>Some location &mdash; Project type &middot; Year</p>
+                    </div>
+                  </a>
+                </article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="panel-contact">
+            <span>Contact</span>
+          </button>
+          <div class="accordion-panel" id="panel-contact">
+            <div class="accordion-panel-inner">
+              <h2>Contact information title</h2>
+              <p class="contact-body">Some short text about how to get in touch and what to expect.</p>
+              <a href="mailto:email@example.com" class="contact-email">An email address here</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <span class="footer-name">Katja Mali</span>
+        <span class="footer-copy">&copy; <span id="year"></span></span>
+      </footer>
+    </aside>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

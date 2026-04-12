@@ -31,4 +31,4 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           comment: true
-          pages-base-url: https://katjamali.se
+          pages-base-url: katjamali.se

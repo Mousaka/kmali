@@ -1,6 +1,6 @@
 # WIP: Katja Mali — Landscape Architect Portfolio
 
-Live site: [[mousaka.github.io/kmali](https://katjamali.se)](https://katjamali.se)
+Live site: [katjamali.se](https://katjamali.se)
 
 ## Structure
 
